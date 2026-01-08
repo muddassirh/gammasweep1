@@ -521,38 +521,63 @@ const Features = () => (
         variants={staggerContainer}
         className="grid md:grid-cols-3 gap-8"
       >
-        {[
-          {
-            icon: <Globe className="w-6 h-6 text-[#485BFF]" />,
-            title: "Global Edge Network",
-            desc: "Deploy your logic to 35+ regions instantly. We handle the routing and replication automatically.",
-          },
-          {
-            icon: <Zap className="w-6 h-6 text-amber-500" />,
-            title: "Instant Rollbacks",
-            desc: "Mistakes happen. Revert deployments in sub-second timeframes with zero downtime.",
-          },
-          {
-            icon: <Activity className="w-6 h-6 text-emerald-500" />,
-            title: "Real-time Observability",
-            desc: "Metrics, logs, and traces are integrated out of the box. No external agents required.",
-          },
-        ].map((feature, i) => (
-          <motion.div
-            key={i}
-            variants={fadeInUp}
-            whileHover={{ y: -5 }}
-            className="group p-8 rounded-2xl border border-slate-100 bg-white hover:border-slate-200 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300"
-          >
-            <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              {feature.icon}
-            </div>
-            <h3 className="text-xl font-semibold text-slate-900 mb-3">
-              {feature.title}
-            </h3>
-            <p className="text-slate-600 leading-relaxed">{feature.desc}</p>
-          </motion.div>
-        ))}
+{[
+  {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+        <path d="M12 2C12 2 15 6 15 12C15 18 12 22 12 22" stroke="currentColor" strokeWidth="2"/>
+        <path d="M12 2C12 2 9 6 9 12C9 18 12 22 12 22" stroke="currentColor" strokeWidth="2"/>
+        <path d="M2 12H22" stroke="currentColor" strokeWidth="2"/>
+        <path d="M4 8H20" stroke="currentColor" strokeWidth="2"/>
+        <path d="M4 16H20" stroke="currentColor" strokeWidth="2"/>
+      </svg>
+    ),
+    title: "Global Edge Network",
+    desc: "Deploy your logic to 35+ regions instantly. We handle the routing and replication automatically.",
+    gradient: "from-[#485BFF] to-emerald-500",
+  },
+  {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+      </svg>
+    ),
+    title: "Instant Rollbacks",
+    desc: "Mistakes happen. Revert deployments in sub-second timeframes with zero downtime.",
+    gradient: "from-[#485BFF] to-emerald-500",
+  },
+  {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 12C3 12 5.5 7 12 7C18.5 7 21 12 21 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M3 12C3 12 5.5 17 12 17C18.5 17 21 12 21 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <circle cx="12" cy="12" r="2" fill="currentColor"/>
+        <path d="M2 12H6M18 12H22" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+    ),
+    title: "Real-time Observability",
+    desc: "Metrics, logs, and traces are integrated out of the box. No external agents required.",
+    gradient: "from-[#485BFF] to-emerald-500",
+  },
+].map((feature, i) => (
+  <motion.div
+    key={i}
+    variants={fadeInUp}
+    whileHover={{ y: -5 }}
+    className="group p-8 rounded-2xl border border-slate-100 bg-white hover:border-slate-200 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300"
+  >
+    <div className={`w-14 h-14 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+      <div className="text-white">
+        {feature.icon}
+      </div>
+    </div>
+    <h3 className="text-xl font-semibold text-slate-900 mb-3">
+      {feature.title}
+    </h3>
+    <p className="text-slate-600 leading-relaxed">{feature.desc}</p>
+  </motion.div>
+))}
       </motion.div>
     </div>
   </section>
